@@ -4,13 +4,13 @@ class Config(object):
     """
     Common configuration
     """
+    DEBUG = True
 
 class DevelopmentConfig(Config):
     """
     Development configuration
     """
 
-    DEBUG = True
     SQLALCHEMY_ECHO = True
 
 
@@ -21,9 +21,17 @@ class ProductionConfig(Config):
 
     DEBUG = False
 
+class TestingConfig(Config):
+    """
+    Testing configuration
+    """
+
+    TESTING = True
+
 app_config = {
     'development': DevelopmentConfig,
-    'production': ProductionConfig
+    'production': ProductionConfig,
+    'testing': TestingConfig
 }
 
 
